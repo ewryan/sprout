@@ -3,7 +3,7 @@ define :rvm_ruby_install do
   options = params[:options]
   raise "options should be a hash with :env and :command_line_options keys" unless options.is_a?(Hash)
 
-  include_recipe "pivotal_workstation::rvm"
+  include_recipe "sprout-osx-gnip::rvm"
 
   execute "clean out the archive and src directories each time.  bad downloads cause problems with rvm" do
     only_if params[:only_if] if params[:only_if]
