@@ -5,6 +5,7 @@ PASSWORD = node["mysql_root_password"]
 # The next two directories will be owned by WS_USER
 DATA_DIR = "/usr/local/var/mysql"
 PARENT_DATA_DIR = "/usr/local/var"
+WS_USER = node["current_user"]
 
 [ "/Users/#{WS_USER}/Library/LaunchAgents",
   PARENT_DATA_DIR,
