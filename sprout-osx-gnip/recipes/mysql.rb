@@ -49,7 +49,7 @@ execute "fix permissions" do
 end
 
 execute "fix permissions 2" do
-  command "chmod -R 755 /usr/local/mysql/bin/*"
+  command "chmod -R 755 /usr/local/mysql/bin"
 end
 
 execute "load the mysql plist into the mac daemon startup thing" do
