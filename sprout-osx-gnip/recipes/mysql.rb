@@ -57,7 +57,7 @@ ruby_block "mysql_install_db" do
     active_mysql = Pathname.new("/usr/local/mysql").realpath
     basedir = (active_mysql).to_s
     data_dir = "/usr/local/var/mysql"
-    system("/usr/local/mysql/scripts/mysql_install_db --verbose --user=mysql --basedir=#{basedir} --datadir=#{DATA_DIR} --tmpdir=/tmp && chown mysql #{data_dir}") || raise("Failed initializing mysqldb")
+    system("/usr/local/mysql/scripts/mysql_install_db --verbose --user=#{WS_USER} --basedir=#{basedir} --datadir=#{DATA_DIR} --tmpdir=/tmp && chown mysql #{data_dir}") || raise("Failed initializing mysqldb")
   end
   not_if { File.exists?("/usr/local/var/mysql/mysql/user.MYD")}
 end
