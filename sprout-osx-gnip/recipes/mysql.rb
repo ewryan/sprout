@@ -70,5 +70,5 @@ end
 
 execute "set the root password to the default" do
   command "/usr/local/mysql/bin/mysqladmin -uroot password #{PASSWORD}"
-  not_if "mysql -uroot -p#{PASSWORD} -e 'show databases'"
+  not_if "/usr/local/mysql/bin/mysql -uroot -p#{PASSWORD} -e 'show databases'"
 end
