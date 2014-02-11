@@ -52,16 +52,6 @@ execute "fix permissions 2" do
   command "chmod -R 755 /usr/local/mysql/bin/*"
 end
 
-ruby_block "mysql_install_db" do
-  block do
-    active_mysql = Pathname.new("/usr/local/mysql").realpath
-    basedir = (active_mysql).to_s
-    data_dir = "/usr/local/var/mysql"
-    system("/usr/local/mysql/scripts/mysql_install_db --verbose --user=#{WS_USER} --basedir=#{basedir} --datadir=#{DATA_DIR} --tmpdir=/tmp && chown mysql #{data_dir}") || raise("Failed initializing mysqldb")
-  end
-  not_if { File.exists?("/usr/local/var/mysql/mysql/user.MYD")}
-end
-
 execute "load the mysql plist into the mac daemon startup thing" do
   command "/Library/StartupItems/MySQLCOM/MySQLCOM start"
   user WS_USER
