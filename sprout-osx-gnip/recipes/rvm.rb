@@ -34,7 +34,7 @@ run_unless_marker_file_exists(marker_version_string_for("rvm")) do
 end
 
 node["rvm"]["rubies"].each do |version, options|
-  rvm_ruby_install version do
+  rvm_ruby_install_gnip version do
     options options
   end
 end
