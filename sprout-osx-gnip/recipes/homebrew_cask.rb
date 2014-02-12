@@ -5,9 +5,9 @@ execute "tap phinze/homebrew-cask" do
   not_if { system("brew tap | grep 'phinze/cask' > /dev/null 2>&1") }
 end
 
-execute "tap ewryan/homebrew-cask" do
-  command "brew tap ewryan/homebrew-cask"
-  not_if { system("brew tap | grep 'ewryan/cask' > /dev/null 2>&1") }
+execute "tap gnip/homebrew-cask" do
+  command "brew tap gnip/homebrew-cask"
+  not_if { system("brew tap | grep 'gnip/cask' > /dev/null 2>&1") }
 end
 
 package "brew-cask"
