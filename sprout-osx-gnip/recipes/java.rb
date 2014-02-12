@@ -1,1 +1,1 @@
-sprout_osx_apps_homebrew_cask 'gnip-java'
+sprout_osx_gnip_homebrew_cask 'gnip-java'
