@@ -39,8 +39,14 @@ node["rvm"]["rubies"].each do |version, options|
   end
 end
 
+execute "silencing rvm path warnings" do
+  not_if "grep 'rvm_silence_path_mismatch_check_flag=1' #{node['sprout']['home']}/.rvmrc"
+  command "echo 'rvm_silence_path_mismatch_check_flag=1' >> beagle"
+  user node['current_user']
+end
+
 execute "making #{node["rvm"]["default_ruby"]} with rvm the default" do
-  not_if { node["rvm"]["default_ruby"].nil? }
+  not_if {  }
   command "#{::RVM_COMMAND} alias create default #{node["rvm"]["default_ruby"]}"
   user node['current_user']
 end
