@@ -41,7 +41,7 @@ end
 
 execute "silencing rvm path warnings" do
   not_if "grep 'rvm_silence_path_mismatch_check_flag=1' #{node['sprout']['home']}/.rvmrc"
-  command "echo 'rvm_silence_path_mismatch_check_flag=1' >> beagle"
+  command "echo 'rvm_silence_path_mismatch_check_flag=1' >> #{node['sprout']['home']}/.rvmrc"
   user node['current_user']
 end
 
